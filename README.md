@@ -1,42 +1,181 @@
-# Generator
+<div align="center">
 
-This template should help get you started developing with Vue 3 in Vite.
+# Vue Generator Lab
+### Учебный SPA-проект на Vue 3 с интерактивными модулями, фермой и симуляцией готовки
 
-## Recommended IDE Setup
+Практический проект для изучения компонентов, событий, `props`, `$emit`, работы с API, формами и серверной логикой на Express.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Recommended Browser Setup
+[![GitHub](https://img.shields.io/badge/GitHub-Исходный_код-black?style=for-the-badge&logo=github)](https://github.com/DIBERLOG/work_project)
+[![Vue 3](https://img.shields.io/badge/Vue-3-42b883?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-7-646cff?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
+[![Express](https://img.shields.io/badge/Express-5-1f2937?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+</div>
 
-## Type Support for `.vue` Imports in TS
+---
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## О проекте
 
-## Customize configuration
+`Vue Generator Lab` это большая учебная страница, в которой собрано несколько независимых мини-приложений. Проект показывает, как в одном интерфейсе можно объединить разные паттерны работы Vue: от простых счетчиков и выбора языка до более живых сценариев с покупкой растений, сбором урожая, созданием блюд и отслеживанием процесса готовки.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Приложение состоит из клиентской части на `Vue 3 + Vite` и серверной части на `Express`. Сервер отдает API для фермы и кухни, а в production также раздает собранный фронтенд из папки `dist`.
 
-## Project Setup
+---
 
-```sh
+## Основные возможности
+
+✅ Единая длинная страница с быстрой навигацией по разделам  
+✅ Учебные модули для практики `props`, `$emit`, форм, списков и реактивности  
+✅ Интерактивная ферма с магазином, балансом, посадкой растений и сбором урожая  
+✅ Динамическое обновление цен в магазине и таймер роста растений  
+✅ Раздел кухни с карточками блюд, созданием рецептов и симуляцией готовки  
+✅ Автообновление состояния приготовления блюд через API  
+✅ Работа с HTTP-запросами через `axios`  
+✅ Адаптивный интерфейс для десктопа и мобильных устройств  
+
+---
+
+## Ключевые модули
+
+### Ферма
+- Магазин растений с изменяемыми ценами покупки и продажи
+- Виртуальный баланс пользователя
+- Посадка нескольких растений за одно действие
+- Созревание урожая по времени и сбор по клику
+
+### Кухня
+- Просмотр списка блюд
+- Открытие полного рецепта
+- Добавление новых блюд через форму
+- Отправка блюда в готовку
+- Отображение прогресса приготовления
+- Удаление блюда из каталога и из очереди готовки
+
+### Учебные блоки Vue
+- Блог
+- Книги
+- Счетчик
+- Галерея
+- Выбор языка
+- Текстовый анализатор
+- Практика `props + $emit`
+- Тестовый блок
+- Курс Bitcoin
+- Определение возраста
+- Трекер посылок
+- Голосование
+
+---
+
+## Технологический стек
+
+<p align="center">
+
+| Раздел | Технологии |
+|--------|------------|
+| Frontend | Vue 3, TypeScript, Vite |
+| UI | Bootstrap 5, кастомные стили, адаптивная верстка |
+| Backend | Node.js, Express 5, CORS |
+| HTTP | Axios |
+| Dev | Nodemon, vue-tsc, npm-run-all2 |
+
+</p>
+
+---
+
+## Структура проекта
+
+```mermaid
+graph TD
+    A["Vue Generator Lab"] --> B["Учебные модули"]
+    A --> C["Ферма"]
+    A --> D["Кухня"]
+    C --> E["GET /shop"]
+    C --> F["POST /shop/buy"]
+    C --> G["GET /garden"]
+    C --> H["POST /garden/harvest"]
+    D --> I["GET /dishes"]
+    D --> J["POST /dishes"]
+    D --> K["POST /cooking/cook"]
+    D --> L["GET /cooking"]
+    D --> M["DELETE /cooking/:id"]
+```
+
+---
+
+## Запуск проекта
+
+### 1. Установка зависимостей
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 2. Запуск фронтенда
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### 3. Запуск сервера
 
-```sh
+```bash
+npm run server
+```
+
+По умолчанию API доступно на `http://localhost:3005`.
+
+### 4. Production-сборка
+
+```bash
 npm run build
 ```
+
+### 5. Запуск production-сервера
+
+```bash
+npm start
+```
+
+---
+
+## API-эндпоинты
+
+### Ферма
+- `GET /shop` - получить магазин растений
+- `GET /user` - получить баланс пользователя
+- `GET /garden` - получить список растений в огороде
+- `POST /shop/buy` - купить и посадить растения
+- `POST /garden/harvest` - собрать урожай
+
+### Кухня
+- `GET /dishes` - получить список блюд
+- `GET /dish?id=...` - получить конкретный рецепт
+- `POST /dishes` - создать новое блюдо
+- `DELETE /dishes/:id` - удалить блюдо
+- `POST /cooking/cook` - отправить блюдо в готовку
+- `GET /cooking` - получить текущий статус готовки
+- `DELETE /cooking/:id` - удалить блюдо из готовки
+
+---
+
+## Для чего сделан проект
+
+Этот проект полезен как учебная база для практики:
+
+- компонентного подхода во Vue
+- передачи данных между компонентами
+- работы с пользовательскими событиями
+- отправки и получения данных с сервера
+- построения интерфейсов с несколькими независимыми модулями
+- организации простого fullstack-проекта на `Vue + Express`
+
+---
+
+<div align="center">
+
+Проект сделан как учебная практика по Vue и генерации пользовательских событий.
+
+</div>
